@@ -228,6 +228,13 @@ ${DOMAIN} {
 }
 EOF
 
+# --- Tạo Caddyfile ---
+cat << EOF > $N8N_DIR/Caddyfile
+${DOMAIN} {
+    reverse_proxy n8n:5678
+}
+EOF
+
 # Đặt quyền cho thư mục n8n
 echo "Đặt quyền cho thư mục n8n..."
 chown -R 1000:1000 $N8N_DIR
